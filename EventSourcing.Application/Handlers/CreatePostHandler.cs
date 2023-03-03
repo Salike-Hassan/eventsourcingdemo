@@ -17,7 +17,7 @@ public class CreatePostHandler : IRequestHandler<CreatePost, Post>
     {
         var post = Post.Create(Guid.NewGuid(), request.Content);
 
-        var postId = await this.repository.Save(post);
+        await this.repository.Save(post);
 
         //TODO: GetById implimentation not done yet.
         return await this.repository.GetById(post.Id, cancellationToken);

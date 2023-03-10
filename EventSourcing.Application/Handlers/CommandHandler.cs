@@ -1,11 +1,20 @@
 ﻿using EventSourcing.Application.Commands;
+using EventSourcing.Domain;
 
 namespace EventSourcing.Application.Handlers;
 
 public class CommandHandler : ICommandHandler
 {
-    public Task HandleAsync(CreatePostCommand command)
+    private readonly IEventSourcingHandler<PostAggregate> eventSourcingHandler;
+
+    public CommandHandler(IEventSourcingHandler<PostAggregate> eventSourcingHandler)
     {
-        throw new NotImplementedException();
+        this.eventSourcingHandler = eventSourcingHandler;
+    }
+    public async Task HandleAsync(CreatePostCommand command)
+    {
+        var aggregate = new PostAggregate(command.Id, command.Content);
+
+        await eventSourcingHandler.SaveAsync(aggregate);
     }
 }

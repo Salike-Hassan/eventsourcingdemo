@@ -1,13 +1,10 @@
-﻿using EventSourcing.Core.Stream;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EventSourcing.Core.Domain;
 
-namespace EventSourcing.Application.Repositories
+namespace EventSourcing.Application.Repositories;
+
+public interface IAggregateRepository<TAggregate> where TAggregate : class, new()
 {
-    public interface IAggregateRepository
-    { 
-    }
+    Task<TAggregate> GetByAggregateId(Guid id, CancellationToken cancellationToken);
+
+    Task Save(TAggregate aggregate);
 }

@@ -14,5 +14,6 @@ public interface IEventStore
 
 
     Task SaveEventsAsync(AggregateRoot aggregate);
-    
+
+
 }

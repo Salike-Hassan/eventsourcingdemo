@@ -1,11 +1,6 @@
 ﻿using EventSourcing.Domain;
 using Microsoft.Extensions.Logging;
 using QuadPay.EventStore.EventStore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EventSourcing.Application.Repositories;
 
@@ -19,8 +14,13 @@ public class PostAggregateRepository : AggregateRepository<Post>, IPostAggregate
     }
     public override string StreamPrefix => "post-";
 
-    public Task<long> Save(Post aggregate)
+    public async Task<long> Save(Post aggregate)
     {
-        return base.Save(aggregate);
+        return await base.Save(aggregate);
+    }
+
+    public override async Task<Post> GetById(Guid postId, CancellationToken cancellationToken)
+    {
+        return await base.GetById(postId, cancellationToken);
     }
 }

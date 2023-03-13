@@ -27,7 +27,7 @@ public partial class Post : Aggregate<Post.State>
         Ensure.ArgumentNotNullOrEmptyOrWhitespace(content, nameof(content));
 
         var aggregate = new Post();
-        aggregate.RaiseEvent(new PostCreated
+        aggregate.RaiseEvent(new SocialMediaPostCreated
         {
             PostId = postId,
             Content = content,

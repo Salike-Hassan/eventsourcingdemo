@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EventSourcing.Domain.Events;
 
-public class PostCreated : Event
+public class SocialMediaPostCreated : Event
 {
     public Guid PostId { get; set; }
 

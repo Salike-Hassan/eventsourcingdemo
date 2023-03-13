@@ -5,11 +5,11 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="QuadPay.Core" Version="4.0.1" />
-		<PackageReference Include="QuadPay.Domain.Core" Version="6.2.0.244717" />
 		<PackageReference Include="EventStore.Client" Version="22.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\EventSourcing.Core\EventSourcing.Core.csproj" />
+	  <ProjectReference Include="..\EventSourcing.Domain\EventSourcing.Domain.csproj" />
 	</ItemGroup>
 </Project>

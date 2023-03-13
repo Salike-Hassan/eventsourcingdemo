@@ -22,7 +22,7 @@ public partial class Post
             return state;
         }
 
-        public void Apply(PostCreated @event)
+        public void Apply(SocialMediaPostCreated @event)
         {
             this.SetId(@event.PostId);
             this.PostId = @event.PostId;

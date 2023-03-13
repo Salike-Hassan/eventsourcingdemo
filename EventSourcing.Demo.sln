@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing.Domain", "EventSourcing.Domain\EventSourcing.Domain.csproj", "{8EF1A33F-E1B1-4B30-8535-AB80C2789035}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventSourcing.Domain", "EventSourcing.Domain\EventSourcing.Domain.csproj", "{8EF1A33F-E1B1-4B30-8535-AB80C2789035}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing.Application", "EventSourcing.Application\EventSourcing.Application.csproj", "{88762433-81A8-4416-AAA4-9CB79685287D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventSourcing.Application", "EventSourcing.Application\EventSourcing.Application.csproj", "{88762433-81A8-4416-AAA4-9CB79685287D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing.Api", "EventSourcing.Api\EventSourcing.Api.csproj", "{367CEEC0-447A-485B-A570-6BD5936CF4DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventSourcing.Api", "EventSourcing.Api\EventSourcing.Api.csproj", "{367CEEC0-447A-485B-A570-6BD5936CF4DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventSourcing.Core", "EventSourcing.Core\EventSourcing.Core.csproj", "{DEB9A7D1-832C-4B36-BBAB-1CB49843A3FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing.Library", "EventSourcing.Library\EventSourcing.Library.csproj", "{E6039A36-8867-46E0-85CB-CC0CCF06A135}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{367CEEC0-447A-485B-A570-6BD5936CF4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{367CEEC0-447A-485B-A570-6BD5936CF4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{367CEEC0-447A-485B-A570-6BD5936CF4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEB9A7D1-832C-4B36-BBAB-1CB49843A3FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEB9A7D1-832C-4B36-BBAB-1CB49843A3FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEB9A7D1-832C-4B36-BBAB-1CB49843A3FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEB9A7D1-832C-4B36-BBAB-1CB49843A3FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6039A36-8867-46E0-85CB-CC0CCF06A135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6039A36-8867-46E0-85CB-CC0CCF06A135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6039A36-8867-46E0-85CB-CC0CCF06A135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6039A36-8867-46E0-85CB-CC0CCF06A135}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,5 @@
 ﻿using EventSourcing.Core.Domain;
 using EventSourcing.Domain.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EventSourcing.Domain
 {
@@ -13,11 +8,18 @@ namespace EventSourcing.Domain
         private bool isActivePost;
         private string content;
 
+        public readonly KeyValuePair<string, string>[] DefaultHeaders = new[]
+        {
+            new KeyValuePair<string, string>("ClrType", typeof(AggregateRoot).AssemblyQualifiedName),
+         };
+
+        public override string StreamPrefix => "SocialMediaPost-";
+
         public PostAggregate() { }
 
         public PostAggregate(Guid id, string content)
         {
-            RaiseEvent(new PostCreated()
+            RaiseEvent(new SocialMediaPostCreated()
             {
                 PostId = id,
                 Content = content,
@@ -26,7 +28,7 @@ namespace EventSourcing.Domain
             });
         }
 
-        public void Apply(PostCreated @event)
+        public void Apply(SocialMediaPostCreated @event)
         {
             Id = @event.PostId;
             isActivePost = @event.IsActivePost;

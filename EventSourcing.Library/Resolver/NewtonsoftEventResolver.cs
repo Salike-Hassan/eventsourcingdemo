@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EventSourcing.Library.Resolver;
 
-public sealed class NewtonsoftEventResolver : IEventResolver
+public class NewtonsoftEventResolver : IEventResolver
 {
     private static readonly Encoding JsonEncoding = new UTF8Encoding(false);
 
@@ -21,29 +21,17 @@ public sealed class NewtonsoftEventResolver : IEventResolver
     private readonly JsonSerializer serializer;
     private readonly IEnumerable<IMetadataResolver> headerResolvers;
 
+    public NewtonsoftEventResolver()
+    {
+        this.serializer = JsonSerializer.Create(SerializerSettings);
+    }
+
     public EventData Resolve(object @event, params KeyValuePair<string, string>[] extraHeaders)
     {
         var eventId = Guid.NewGuid();
         var eventType = @event.GetType();
-        var headers = this.headerResolvers
-                          .SelectMany(x => x.Resolve(@event))
-                          .GroupBy(d => d.Key)
-                          .ToDictionary(d => d.Key, d => d.First().Value);
-
-        if (extraHeaders != null)
-        {
-            // Add in any extra headers.
-            foreach (var header in extraHeaders)
-            {
-                if (!headers.ContainsKey(header.Key))
-                {
-                    headers.Add(header.Key, header.Value);
-                }
-            }
-        }
-
         var data = this.Serialize(@event);
-        var metadata = this.Serialize(headers);
+        var metadata = this.Serialize(extraHeaders);
 
         return new EventData(eventId, eventType.Name, true, data, metadata);
     }
@@ -95,6 +83,7 @@ public sealed class NewtonsoftEventResolver : IEventResolver
 
     public byte[] Serialize(object value)
     {
+
         using var memoryStream = new MemoryStream();
         using (var streamWriter = new StreamWriter(memoryStream, JsonEncoding))
         {
@@ -105,3 +94,4 @@ public sealed class NewtonsoftEventResolver : IEventResolver
         return memoryStream.ToArray();
     }
 }
+

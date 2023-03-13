@@ -1,10 +1,11 @@
 ﻿using EventSourcing.Core.Domain;
+using QuadPay.Domain.Core;
 
 namespace EventSourcing.Application.Repositories;
 
-public interface IAggregateRepository<TAggregate> where TAggregate : class, new()
+public interface IAggregateRepository
 {
-    Task<TAggregate> GetByAggregateId(Guid id, CancellationToken cancellationToken);
+    Task<List<Event>> GetEventsAsync(Guid aggregateId);
 
-    Task Save(TAggregate aggregate);
+    Task SaveEventsAsync(AggregateRoot aggregate);
 }

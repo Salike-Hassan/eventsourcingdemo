@@ -6,7 +6,8 @@
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="EventStore.Client" Version="22.0.0" />
-		<PackageReference Include="QuadPay.Core" Version="4.0.1" />
+		<!--<PackageReference Include="QuadPay.Core" Version="4.0.1" />-->
 		<PackageReference Include="QuadPay.Domain.Core" Version="6.2.0.244717" />
+		<PackageReference Include="EventStore.Client" Version="22.0.0" />
 	</ItemGroup>
 </Project>

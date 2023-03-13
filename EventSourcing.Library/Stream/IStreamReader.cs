@@ -1,6 +1,8 @@
-﻿namespace EventSourcing.Library.Stream;
+﻿using QuadPay.Domain.Core;
+
+namespace EventSourcing.Library.Stream;
 
 public interface IStreamReader
 {
-    Task FindAggregateById(string aggregateId);
+    Task<List<Event>> FindAggregateById(string streamId, CancellationToken ct, int readPageSize = 500);
 }

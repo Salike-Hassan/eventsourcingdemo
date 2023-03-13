@@ -11,7 +11,7 @@ namespace EventSourcing.Api.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private readonly IMediator mediator;
+        // private readonly IMediator mediator;
         private readonly ICommandDispatcher commandDispatcher;
 
         public PostController(ICommandDispatcher commandDispatcher)

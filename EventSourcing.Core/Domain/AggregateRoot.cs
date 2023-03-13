@@ -1,4 +1,5 @@
-﻿using QuadPay.Domain.Core;
+﻿using Newtonsoft.Json;
+using QuadPay.Domain.Core;
 
 namespace EventSourcing.Core.Domain;
 
@@ -8,6 +9,11 @@ public abstract class AggregateRoot
 
     private readonly List<Event> changes = new();
 
+    public abstract string StreamPrefix { get; }
+
+    protected Type AggregateType => typeof(AggregateRoot);
+
+    [JsonIgnore]
     public int Version { get; set; } = -1;
 
     public IEnumerable<Event> GetUncommittedChanges()
